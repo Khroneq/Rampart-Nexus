@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "policy": {
+    "id": "CIS_AWS_V5",
+    "title": "CIS Amazon Web Services Foundations Benchmark v1.0.0",
+    "description": "AWS controls for security best practices",
+    "controls": {
+      "Identity and Access Management": [
+        { "id": "1.1", "control": "Maintain current contact details", "type": "Manual" },
+        { "id": "1.2", "control": "Ensure security contact information is registered", "type": "Manual" },
+        { "id": "1.3", "control": "Ensure no 'root' user account access key exists", "type": "Automated" },
+        { "id": "1.4", "control": "Ensure MFA is enabled for the 'root' user account", "type": "Automated" },
+        { "id": "1.5", "control": "Ensure hardware MFA is enabled for the 'root' user account", "type": "Manual" },
+        { "id": "1.6", "control": "Eliminate use of the 'root' user for administrative and daily tasks", "type": "Manual" },
+        { "id": "1.7", "control": "Ensure IAM password policy requires minimum length of 14 or greater", "type": "Automated" },
+        { "id": "1.8", "control": "Ensure IAM password policy prevents password reuse", "type": "Automated" },
+        { "id": "1.9", "control": "Ensure MFA is enabled for all IAM users with console password", "type": "Automated" },
+        { "id": "1.10", "control": "Do not create access keys during initial setup for IAM users with console password", "type": "Manual" },
+        { "id": "1.11", "control": "Ensure credentials unused for 45 days or more are disabled", "type": "Automated" },
+        { "id": "1.12", "control": "Ensure there is only one active access key for any single IAM user", "type": "Automated" },
+        { "id": "1.13", "control": "Ensure access keys are rotated every 90 days or less", "type": "Automated" },
+        { "id": "1.14", "control": "Ensure IAM users receive permissions only through groups", "type": "Automated" },
+        { "id": "1.15", "control": "Ensure IAM policies that allow full '*:*' administrative privileges are not attached", "type": "Automated" },
+        { "id": "1.16", "control": "Ensure a support role has been created to manage incidents with AWS Support", "type": "Automated" },
+        { "id": "1.17", "control": "Ensure IAM instance roles are used for AWS resource access from instances", "type": "Automated" },
+        { "id": "1.18", "control": "Ensure that all expired SSL/TLS certificates stored in AWS IAM are removed", "type": "Automated" },
+        { "id": "1.19", "control": "Ensure IAM External Access Analyzer is enabled for all regions", "type": "Automated" },
+        { "id": "1.20", "control": "Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments", "type": "Manual" },
+        { "id": "1.21", "control": "Ensure access to AWSCloudShellFullAccess is restricted", "type": "Manual" }
+      ],
+      "Storage": {
+        "S3": [
+          { "id": "2.1.1", "control": "Ensure S3 Bucket Policy is set to deny HTTP requests", "type": "Automated" },
+          { "id": "2.1.2", "control": "Ensure MFA Delete is enabled on S3 buckets", "type": "Manual" },
+          { "id": "2.1.3", "control": "Ensure all data in Amazon S3 has been discovered, classified, and secured when necessary", "type": "Manual" },
+          { "id": "2.1.4", "control": "Ensure that S3 is configured with 'Block Public Access' enabled", "type": "Automated" }
+        ],
+        "RDS": [
+          { "id": "2.2.1", "control": "Ensure encryption-at-rest is enabled for RDS instances", "type": "Automated" },
+          { "id": "2.2.2", "control": "Ensure the Auto Minor Version Upgrade feature is enabled for RDS instances", "type": "Automated" },
+          { "id": "2.2.3", "control": "Ensure that RDS instances are not publicly accessible", "type": "Automated" },
+          { "id": "2.2.4", "control": "Ensure Multi-AZ deployments are used for enhanced availability in Amazon RDS", "type": "Manual" }
+        ],
+        "EFS": [
+          { "id": "2.3.1", "control": "Ensure that encryption is enabled for EFS file systems", "type": "Automated" }
+        ]
+      },
+      "Logging": [
+        { "id": "3.1", "control": "Ensure CloudTrail is enabled in all regions", "type": "Manual" },
+        { "id": "3.2", "control": "Ensure CloudTrail log file validation is enabled", "type": "Automated" },
+        { "id": "3.3", "control": "Ensure AWS Config is enabled in all regions", "type": "Automated" },
+        { "id": "3.4", "control": "Ensure that server access logging is enabled on the CloudTrail S3 bucket", "type": "Manual" },
+        { "id": "3.5", "control": "Ensure CloudTrail logs are encrypted at rest using KMS CMKs", "type": "Automated" },
+        { "id": "3.6", "control": "Ensure rotation for customer-created symmetric CMKs is enabled", "type": "Automated" },
+        { "id": "3.7", "control": "Ensure VPC flow logging is enabled in all VPCs", "type": "Automated" },
+        { "id": "3.8", "control": "Ensure that object-level logging for write events is enabled for S3 buckets", "type": "Automated" },
+        { "id": "3.9", "control": "Ensure that object-level logging for read events is enabled for S3 buckets", "type": "Automated" }
+      ],
+      "Monitoring": [
+        { "id": "4.1", "control": "Ensure unauthorized API calls are monitored", "type": "Manual" },
+        { "id": "4.2", "control": "Ensure management console sign-in without MFA is monitored", "type": "Manual" },
+        { "id": "4.3", "control": "Ensure usage of the 'root' account is monitored", "type": "Manual" },
+        { "id": "4.4", "control": "Ensure IAM policy changes are monitored", "type": "Manual" },
+        { "id": "4.5", "control": "Ensure CloudTrail configuration changes are monitored", "type": "Manual" },
+        { "id": "4.6", "control": "Ensure AWS Management Console authentication failures are monitored", "type": "Manual" },
+        { "id": "4.7", "control": "Ensure disabling or scheduled deletion of customer created CMKs is monitored", "type": "Manual" },
+        { "id": "4.8", "control": "Ensure S3 bucket policy changes are monitored", "type": "Manual" },
+        { "id": "4.9", "control": "Ensure AWS Config configuration changes are monitored", "type": "Manual" },
+        { "id": "4.10", "control": "Ensure security group changes are monitored", "type": "Manual" },
+        { "id": "4.11", "control": "Ensure Network Access Control List (NACL) changes are monitored", "type": "Manual" },
+        { "id": "4.12", "control": "Ensure changes to network gateways are monitored", "type": "Manual" },
+        { "id": "4.13", "control": "Ensure route table changes are monitored", "type": "Manual" },
+        { "id": "4.14", "control": "Ensure VPC changes are monitored", "type": "Manual" },
+        { "id": "4.15", "control": "Ensure AWS Organizations changes are monitored", "type": "Manual" },
+        { "id": "4.16", "control": "Ensure AWS Security Hub is enabled", "type": "Automated" }
+      ],
+      "Networking": [
+        { "id": "5.1.1", "control": "Ensure EBS volume encryption is enabled in all regions", "type": "Automated" },
+        { "id": "5.1.2", "control": "Ensure CIFS access is restricted to trusted networks to prevent unauthorized access", "type": "Automated" },
+        { "id": "5.2", "control": "Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports", "type": "Automated" },
+        { "id": "5.3", "control": "Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports", "type": "Automated" },
+        { "id": "5.4", "control": "Ensure no security groups allow ingress from ::/0 to remote server administration ports", "type": "Automated" },
+        { "id": "5.5", "control": "Ensure the default security group of every VPC restricts all traffic", "type": "Automated" },
+        { "id": "5.6", "control": "Ensure routing tables for VPC peering are 'least access'", "type": "Manual" },
+        { "id": "5.7", "control": "Ensure that the EC2 Metadata Service only allows IMDSv2", "type": "Automated" }
+      ]
+    }
+  }
+}
