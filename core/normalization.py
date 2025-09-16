@@ -1,4 +1,4 @@
-def normalised_findings(service: str, check_id: str, title: str, resource: str, status: str, notes: str = "") -> dict:
+def normalized_findings(service: str, check_id: str, title: str, resource: str, status: str, notes: str = "") -> dict:
     return {
         "service": service,
         "check_id": check_id,
